@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <select id="Color" onchange="myFunction()">
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+    </select>
+    
+    <p id="text"> 수성은 태양과 너무 가깝기 때문에 지구에서 망원경으로 관찰하기 어렵다 </p>
+    
+    <script>
+        function myFunction(){
+            var x = document.getElementById("Color").value;
+            document.getElementById("text").style.color = x;
+        }
+    </script>
+</body>
+</html>

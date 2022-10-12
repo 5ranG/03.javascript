@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="phone">    
+    <input type="button" onclick="sendNumber()" value="전송">
+    
+    <script>
+        
+        function sendNumber(){
+            var txt;
+            /*txt = document.getElementById("phone").value;*/
+            txt = "Apple, Banana, Kiwi, Banana"
+            
+            var a = txt.split(",");
+            
+            alert(a[0]);
+            alert(a[1]);
+            alert(a[2]);
+            alert(a[3]);
+            
+            var a = txt.split("");
+            
+            alert(a[0]);
+            alert(a[1]);
+            alert(a[2]);
+            alert(a[3]);
+        }
+
+    </script>
+</body>
+</html>

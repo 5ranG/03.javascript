@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+   
+    <p>Select a new car from the list.</p>
+    
+    <select name="" id="mySelect" onchange="myFuncion()">
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Volvo">Volvo</option>
+    </select>
+    <!--onchange: 내가 선택한 값이 달라졌을때 사용?? 이 값이 변했을때 실행시켜라!-->
+    
+    <p>When you select a nwe car, a funtiono is triggered which outputs the calue of the select car.</p>
+    
+    <p id="demo"></p>
+    
+    <script>
+        function myFuncion(){
+            var x= document./*문서안에서*/ getElementById/*개체를 가져와라, id인것을*/("mySelect").value/*가져온 값이 선택된 값을 x에 넣어라*/;
+            document.getElementById("demo")/*문서에서 데모라는 걸 가져오라*/.innerHTML/*그안에 html값을 넣는거*/ = "You selected : " + x;
+        }
+    </script>
+</body>
+</html>

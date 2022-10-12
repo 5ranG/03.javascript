@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="phone">    
+    <input type="button" onclick="sendNumber()" value="전송">
+    
+    <script>
+        
+        function sendNumber(){
+            var txt;
+            /*txt = document.getElementById("phone").value;*/
+            txt = "Apple, Banana, Kiwi, Banana"
+            
+            var a1 = "aaa";
+            var a2 = "bbb";
+            
+            
+            var text = a1 + "-" + a2; // var text = a1.concat("-", a2);
+            
+            /*
+            var text = txt.toLowerCase();
+            // 전부다 소문자로 바꿈
+            
+            var text = txt.toUpperCase();
+            // 전부다 대문자로 바꿈
+            */
+            
+            alert(text);
+        }
+
+    </script>
+</body>
+</html>

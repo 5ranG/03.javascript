@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <style>
+        /*---[1200] wrapwrapwrap---*/
+        *, body, html{
+            margin: 0px; padding: 0px;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        
+        .clearfix::after{
+            display: block; content: ''; clear: both;
+        }
+        
+        #wrap{
+            width: 1200px;
+            margin: auto;
+        }
+        
+    /*---[700] wrapwrapwrap---*/
+    @media(max-width:700px){
+        #wrap{
+            width: 700px;
+        }
+    }
+        
+                
+        /*---headerheaderheader---*/
+        #header>div{
+            float: left;
+            width: 100%; height: 80px;
+            border-bottom: 1px solid black;
+        }
+        
+        #header>#logo{
+            width: 200px;
+            background-color: hotpink;
+        }
+        
+        #header>#header_r{
+            width: 1000px;
+            background-color: greenyellow;
+        }
+        
+        #header>#header_r>div{
+            height: 38px;
+            border-bottom: 1px solid black;
+        }
+        
+        #mainmenu{
+            text-align: center;
+        }
+        
+        #mainmenu>.submenu{
+            padding: 10px 0px;
+            float: left;
+            width: 200px; height: 40px;
+            position: relative;
+            background-color: aqua;
+        }
+        
+        #mainmenu>.submenu>ul{
+            position: absolute; top: 40px;
+            width: 200px; height: 0px;
+            overflow: hidden;
+            transition: 1s;
+            }
+        
+        #mainmenu>.submenu>ul>li{
+            width: 200px;
+            background-color: paleturquoise;   
+            padding: 5px;
+        }
+        
+        
+    /*---[700] headerheaderheader---*/
+    @media(max-width:700px){
+        #header>#logo{
+            width: 100px;
+            background-color: hotpink;
+        }
+        
+        #header>#header_r{
+            width: 600px;
+        }
+        
+        #mainmenu>.submenu{
+            width: 120px;
+        }
+        
+        #mainmenu>.submenu>ul{
+            width: 120px;
+            }
+        
+        #mainmenu>.submenu>ul>li{
+            width: 120px;
+        }
+
+
+    }
+        
+        
+        /*---bannerbannerbanner---*/
+        #banner{
+            width: 1200px; height: 500px;
+            overflow: hidden;
+        }
+        
+        #banner>img{
+            width: 1200px;
+        }
+        
+        
+    /*---[700] bannerbannerbanner---*/
+    @media(max-width:700px){
+        #banner{
+            width: 700px; height: 400px;
+        }
+        
+        #banner>img{
+            width: 700px; height: 400px;
+        }
+    }
+        
+        
+        /*---contentcontentcontent---*/
+        #content{
+            width: 1200px; height: 100px;
+            background-color: orange;
+        }
+        
+        #content>.contents{
+            width: 300px; height: 100px;
+            float: left;
+            border: 1px solid black;
+        }
+        
+        
+    /*---[700] contentcontentcontent---*/
+    @media(max-width:700px){
+        #content{
+            width: 700px; height: 200px;
+            background-color: orange;
+        }
+        
+        #content>.contents{
+            width: 350px; height: 100px;
+            float: left;
+            border: 1px solid black;
+        }
+    }
+        
+        
+        /*---footerfooterfooter---*/
+        #footer{
+            width: 1200px; height: 200px;
+            overflow: hidden;
+        }
+        
+        #footer>div{
+            width: 300px; height: 200px;
+            padding: 10px;
+            float: left;
+        }
+        
+        #footer>div>img{
+            width: 280px; height: 180px;
+        }
+        
+        
+    /*---[700] footerfooterfooter---*/
+    @media(max-width:700px){
+        #footer{
+            width: 700px; height: 400px;
+            overflow: hidden;
+        }
+        
+        #footer>div{
+            width: 350px; height: 200px;
+            padding: 10px;
+            float: left;
+        }
+        
+        #footer>div>img{
+            width: 330px; height: 180px;
+        }
+    }
+        
+        
+        
+    </style>
+</head>
+<body>
+    
+    <div id=wrap>
+        <!--headerheaderheader-->
+        <div id="header" class="clearfix">
+            <div id="logo"> </div>
+            <div id="header_r">
+                <div></div>
+                <div id="mainmenu" class="clearfix">
+                    <div class="submenu" onmouseover = "overFunc(1)" onmouseout = "outFunc(1)"> 메뉴1
+                        <ul id="slide1">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="submenu" onmouseover = "overFunc(2)" onmouseout = "outFunc(2)"> 메뉴2
+                        <ul id="slide2">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="submenu" onmouseover = "overFunc(3)" onmouseout = "outFunc(3)"> 메뉴3
+                        <ul id="slide3">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="submenu" onmouseover = "overFunc(4)" onmouseout = "outFunc(4)"> 메뉴4
+                        <ul id="slide4">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="submenu" onmouseover = "overFunc(5)" onmouseout = "outFunc(5)"> 메뉴5
+                        <ul id="slide5">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!--bannerbannerbanner-->
+        <div id="banner">
+            <img src="/image/14.jpg" alt="banner">
+        </div>
+        
+        
+        <!--contentcontentcontent-->
+        <div id="content" class="clearfix">
+            <div class="contents">주거공간</div>
+            <div class="contents">주거공간</div>
+            <div class="contents">주거공간</div>
+            <div class="contents">주거공간</div>
+        </div>
+        
+        
+        <!--footerfooterfooter-->
+        <div id="footer" class="clearfix">
+            <div>
+                <img src="/image/1.jpg" alt="footer1">
+            </div>
+            <div>
+                <img src="/image/2.jpg" alt="footer2">
+            </div>
+            <div>
+                <img src="/image/3.jpg" alt="footer3">
+            </div>
+            <div>
+                <img src="/image/7.jpg" alt="footer4">
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        
+        function overFunc(num){
+            document.getElementById("slide"+num).style.height = '100px'
+        }
+        
+        function outFunc(num){
+            document.getElementById("slide"+num).style.height = '0px'
+        }
+        
+        
+    </script>
+</body>
+</html>

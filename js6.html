@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *, body, html{
+            margin: 10;
+            padding: 0;
+            font-size: 0;
+        }
+        .wrap{
+            position: relative;
+            border: 2px solid;
+            width: 700px;
+            height: 500px;
+        }
+        input{
+            margin: 2px;
+            font-size: 15pt;
+            width: 50px;
+            height: 50px;
+        }
+        .mykey{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 220px;
+        }
+        #up{
+            position: relative;
+            left: 24%;
+        }
+        #moveobj{
+            border: 2px solid;
+            position: absolute;
+            left: 350px;
+            top: 250px;
+            background-color: lightblue;
+            height: 20px;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+       <div id="moveobj"></div>
+        <div class="mykey">
+            <div>
+                <input type="button" value="▲" id="up" onclick="myFunction('up')">
+            </div>
+            <div>
+                <input type="button" value="◀" id="left" onclick="myFunction('left')">
+                <input type="button" value="▼" id="down" onclick="myFunction('down')">
+                <input type="button" value="▶" id="right" onclick="myFunction('right')">
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        var x = 350;
+        var y = 246;
+        
+        function myFunction(sel){
+            if(sel == "up"){
+                y -= 20;
+            }
+            if(sel == "left"){
+                x -= 20;
+            }
+            if(sel=="down"){
+                y += 20;
+            }
+            if(sel=="right"){
+                x += 20;
+            }
+            document.getElementById("moveobj").style.left = x+"px";
+            document.getElementById("moveobj").style.top = y+"px";
+        }
+        
+
+    </script>
+</body>
+</html>

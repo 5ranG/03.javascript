@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="phone">    
+    <input type="button" onclick="sendNumber()" value="전송">
+    
+    <script>
+        
+        function sendNumber(){
+            var txt;
+            /*txt = document.getElementById("phone").value;*/
+            txt = "Apple, Banana, Kiwi, Banana"
+            
+            var text = txt.charAt(2); // character = char = 문자 1개
+            //특정 위치에 있는 문자 1개 쏙 빼놓을 수 있음
+            
+            var text = txt.charCodeAtAt(2); // 해당하는 키코드를 가져옴?
+            
+            text = txt(3); // 위에꺼와 동일
+            alert(text);
+        }
+
+    </script>
+</body>
+</html>

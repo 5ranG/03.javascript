@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *, html, body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-size: 25px;
+        }    
+        
+        #wrap{
+            border: 1px solid black;
+            width: 400px;
+            margin: auto;
+            padding: 10px;
+        }
+        
+        #wrap *{
+            border: 1px solid black;
+        }
+        
+        #wrap>div{
+            width: 360px;
+            margin: 10px 5px;
+            padding: 10px;
+        }
+        
+        #process{
+            width: 340px;
+            color: #999;
+            text-align: right;
+            font-size: 15px;
+            border: none;
+            word-wrap: break-word;
+        }
+        
+        #text{
+            width: 340px;
+            text-align: right;
+            border: none;
+            word-wrap: break-word;
+        }
+        
+        .number{
+            width: 75px; height: 75px;
+            margin: 5px;            
+        }
+           
+        .symbol{
+            width: 75px; height: 75px;
+            margin: 5px;            
+        }
+                
+        #reset{
+            width: 170px; height: 75px;
+            margin: 5px; 
+        }
+        
+        #back{
+            width: 170px; height: 75px;
+            margin: 5px; 
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div>
+            <p id="process">　</p>
+            <p id="text">0</p>   
+        </div>
+        <input type="button" value="1" class="number" onclick="number(1)">
+        <input type="button" value="2" class="number" onclick="number(2)">
+        <input type="button" value="3" class="number" onclick="number(3)">
+        <input type="button" value="+" class="symbol" onclick="symbol(1)">
+        
+        <input type="button" value="4" class="number" onclick="number(4)">
+        <input type="button" value="5" class="number" onclick="number(5)">
+        <input type="button" value="6" class="number" onclick="number(6)">
+        <input type="button" value="-" class="symbol" onclick="symbol(2)">
+        
+        <input type="button" value="7" class="number" onclick="number(7)">
+        <input type="button" value="8" class="number" onclick="number(8)">
+        <input type="button" value="9" class="number" onclick="number(9)">
+        <input type="button" value="/" class="symbol" onclick="symbol(3)">
+        
+        <input type="button" value="0" class="number" onclick="number(10)">
+        <input type="button" value="." class="number" id="point" onclick="number(11), point()">
+        <input type="button" value="=" class="symbol" onclick="symbol(4)">
+        <input type="button" value="*" class="symbol" onclick="symbol(5)">
+        
+        <input type="button" value="c" id="reset" onclick="reset()">
+        <input type="button" value="←" id="back" onclick="back()">  
+    </div>
+    
+    <script>
+        
+        var txt = document.getElementById("text");
+        var process = document.getElementById("process");
+        //*innerHTML은 보안상 좋지않음, += 기존요소의 끝부분에 추가하는 방법!
+        
+        var erSymbol = true;
+        var isSymbol = false;
+		var rereset = false;
+		
+        var result;
+        var reSymble;
+		
+        
+    /*--- number ---*/
+        function number(num){            
+            var btnNum = document.getElementsByClassName("number")[num-1].value;
+            
+			
+			if(rereset == true){
+				txt.textContent = btnNum;
+				rereset = false;
+			}
+            else if(txt.textContent == "0"){
+                if(btnNum == "."){
+                    txt.textContent += btnNum;
+                }
+                else if(txt.textContent == "0."){
+                    txt.textContent += btnNum;
+                }
+                else{
+                    txt.textContent = btnNum;
+                }
+            }
+            else{
+                if(process.textContent == "　"){
+                    txt.textContent += btnNum;
+                }
+                else if(isSymbol == true){
+                    txt.textContent = btnNum;
+                    isSymbol = false;
+                }
+                else{
+                    txt.textContent += btnNum;
+                }                
+            }
+            
+            erSymbol = true;
+        }
+        
+		
+        
+        function point(){            
+            txt.textContent = txt.textContent.substring(0, (txt.textContent).length-1);
+            
+            if((txt.textContent).indexOf(".") == "-1"){
+                txt.textContent += ".";
+				
+				if(txt.textContent == "."){
+					txt.textContent = "0.";
+				}
+            }
+        }
+        
+        
+    /*--- delete ---*/
+        function reset(){
+            var reset = document.getElementById("reset");
+            process.textContent = "　";
+            txt.textContent = 0;
+        }
+        
+        function back(){
+            var back = document.getElementById("back");
+            var txtLength = (txt.textContent).length;
+            
+            if (txtLength == 1){
+                txt.textContent = "0"
+            }
+            else {
+                txt.textContent = txt.textContent.substring(0,txtLength-1);
+            }
+        }
+        
+        
+    /*--- symbol ---*/    
+        function symbol(num){
+            var symbol = document.getElementsByClassName("symbol")[num-1].value;
+            var temp = txt.textContent;
+            isSymbol = true;
+            var processTemp = process.textContent;
+
+			
+            if(temp === "0."){
+				txt.textContent = 0;
+				var temp = txt.textContent;
+				erSymbol = false;
+            }
+			else if(process.textContent == "　"){
+                process.textContent = temp + symbol;
+                var temp = txt.textContent;
+                erSymbol = false;
+			}
+            else{
+                
+                if(erSymbol){
+                    process.textContent += temp;
+                    process.textContent += symbol;
+                    
+                    erSymbol = false;                  
+                    var temp = txt.textContent;
+                    
+                    switch(reSymble){
+							
+                        case "+":
+                            txt.textContent = result + Number(temp);
+                            break;
+
+                        case "-":
+                            txt.textContent = result - Number(temp);
+                            break; 
+
+                        case "/":
+                            txt.textContent = result / Number(temp);
+                            break;
+
+                        case "*":
+                            txt.textContent = result * Number(temp);                        
+                            break;
+
+                           }
+					
+					if(symbol == "="){
+							switch(reSymble){
+
+								case "+":
+									txt.textContent = result + Number(temp);
+									break;
+
+								case "-":
+									txt.textContent = result - Number(temp);
+									break; 
+
+								case "/":
+									txt.textContent = result / Number(temp);
+									break;
+
+								case "*":
+									txt.textContent = result * Number(temp);                        
+									break;
+
+								   }
+						process.textContent = "　";
+						rereset = true;
+					}
+				}
+				else{
+					var proLength = processTemp.length;
+					process.textContent = process.textContent.substring(0,proLength-1) + symbol;
+				}
+
+				var temp = txt.textContent;
+                
+            }
+            
+            result = Number(temp);
+            reSymble = symbol;
+            
+            
+        }        
+
+
+        
+        
+
+            
+    </script>
+</body>
+</html>

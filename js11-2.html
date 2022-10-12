@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 700px;
+            display: block; content: ''; clear: both;
+        }
+        
+        #contain{
+            float: right;
+        }
+        
+        #red{
+            background-color: red;
+            width: 20px; height: 20px;
+        }
+        #blue{
+            background-color: blue;
+            width: 20px; height: 20px;
+        }
+        #yellow{
+            background-color: yellow;
+            width: 20px; height: 20px;
+        }
+        
+        #test{
+            border: 1px solid black;
+            width: 200px; height: 150px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>   
+    <div id="wrap">
+        <input type="button" value="선 굵게" onclick="borderUp()">
+        <input type="button" value="선 얇게" onclick="borderDown()">
+
+        <div id="contain">
+           <input type="button" id="red" onclick="changecolor('red')">
+           <input type="button" id="blue" onclick="changecolor('blue')">
+           <input type="button" id="yellow" onclick="changecolor('yellow')">
+        </div>
+        
+        <br><br><br>
+        <div id="test"></div>
+    </div>
+    
+    <script>
+        var line=1;
+        
+        function borderUp(){
+            line += 1;
+            document.getElementById("test").style.borderWidth = line + "px";
+        }
+        
+        function borderDown(){
+            if(line != 1){
+                line -= 1;
+                document.getElementById("test").style.borderWidth = line + "px";
+            }
+            
+        }
+        
+        function changecolor(mycolor){
+            document.getElementById("test").style.backgroundColor=mycolor;
+        }
+        /*function A(){
+          var mycolor = 'red';
+          }
+        */
+        
+        /*mycolor는... 버튼에서 내가 선택한 값으로 해당되는 거라서 var 같은게 필요없나*/
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="phone">    
+    <input type="button" onclick="sendNumber()" value="전송">
+    
+    <script>
+        
+        function sendNumber(){
+            var txt;
+            /*txt = document.getElementById("phone").value;*/
+            txt = "Apple, Banana, Kiwi, Banana"
+            
+            var cut = txt.slice(7,13); // 시작위치, 끝위치
+            var cut = txt.substring(7,13); // 시작위치, 끝위치
+            
+            
+            var cut = txt.substr(7,6); // 7부터 6개를 가져오라
+            
+            var cut = txt.replace("Banana","Orange");
+            // 찾을단어, 바꿀단어 (앞에 하나만 바꿈!)
+            
+            var cut = txt.replace(/Banana/g,"Orange");
+            // 찾을단어, 바꿀단어 (전부 바꿈!)
+            
+            var cut = txt.replace(/BAnana/gi,"Orange");
+            // 찾을단어, 바꿀단어 (전부 바꿈+대소문자 구분 없이!)
+            alert(cut);
+            
+            /*
+            slice = substring 대신 사용 가능
+            */
+        }
+
+    </script>
+</body>
+</html>

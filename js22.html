@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+	<style>
+		
+	</style>
+</head>
+<body>
+	
+	<input type="button" value="다른 페이지로 연결"						onclick="fun1()">
+	<input type="button" value="정보 열람"							   onclick="fun2()">
+	<input type="button" value="뒤로가기가 되지 않는 다른 페이지 연결(1)"  onclick="fun3()">
+	<input type="button" value="뒤로가기가 되지 않는 다른 페이지 연결(2)"  onclick="fun4()">
+	<input type="button" value="새로 고침"							   onclick="fun5()">
+	
+	
+	<script>
+		
+		function fun1(){
+			location.href="http://naver.com"
+		}
+		
+		function fun2(){
+			document.write(loacation.host+"<br>");
+			document.write(loacation.hostname+"<br>");
+			document.write(loacation.port+"<br>");
+			document.write(loacation.pathname+"<br>");
+		}
+		
+		function fun3(){
+			location.replace("http://naver.com");
+		}
+		
+		function fun4(){
+			location.assign("http://naver.com");
+		}
+		
+		function fun5(){
+			location.reload();
+		}
+			
+	</script>
+</body>
+</html>

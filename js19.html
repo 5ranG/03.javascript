@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <div id="demo1"></div>
+    <div id="demo2"></div>
+    
+    <script> 
+        
+        // ------------------------------------------------------(숫자를 문자로)
+        var x = 123;
+        x.toString(); //x는 이제 문자
+        var x = (123).toString; //변수없이 숫자를 깡으로 바꿈
+        
+        Number //반대
+        
+        
+        // ------------------------------------------------------(숫자의 자릿수제한)
+        var x = 9.565;
+        x.toPrecision(); // 9.565
+        x.toPrecision(2); // 9.7 (반올림)
+        x.toPrecision(4); // 9.656 (반올림)
+                
+        
+        // ------------------------------------------------------(소수의 자릿수제한)
+        
+        var y = 9.565;
+        x.toFixed(); // 9.565
+        
+        y.toFixed(2); // 9.56 (반올림)
+        alert(y.toFixed(2)); // 단일성이라 alert(y)로 하면 기본것만 나옵니다!!
+        x.toFixed(4); // 9.656 (반올림)
+        
+        // ------------------------------------------------------(첫번째 문자를 숫자(Int 정수)로 바꿈)
+        
+        parseInt("10");
+        parseInt("10.33");
+        parseInt("10 20 30");
+        parseInt("10 years");
+        
+        //전부 결과가 10
+                    
+        // ------------------------------------------------------(Math 함수 중 랜덤)
+        
+        Math.random(); // 0과 1사이 중 랜덤으로 한가지를 뱉는다
+        alert(Math.random());
+        
+        Math.floor(Math.random() * 6 )+ 1; //1~6사이의 랜덤 주사위, floor: 내림
+        
+        
+        // ------------------------------------------------------(Date 함수)
+        
+        var d = new Date(99, 5, 24, 11, 33, 30, 0); // 년+달_일+시+분+초_밀리초
+        document.getElementById("demo1").innerHTML = d; 
+        
+        var a = new Date();
+        a.getDate();
+        document.getElementById("demo2").innerHTML = a;
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

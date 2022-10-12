@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            border: 1px solid black;
+            width: 400px; height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        #cursor{
+            background-color: orange;
+            width: 20px; height: 20px;
+            position: absolute; top:0px; left:0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap" onmousemove="mousemove()">
+    <!--처음엔 event로 선언-->
+        <div id="cursor"></div>
+    </div>
+    
+    <script>
+        function mousemove(){
+            var x = event.clientX;
+            var y = event.clientY;
+            
+            document.getElementById("cursor").style.left = x+"px";
+            document.getElementById("cursor").style.top = y+"px";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 왜 안될까? -->

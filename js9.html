@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .top{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .btn{
+            width:25px;
+            height: 25px;
+        }
+        #demo{
+            margin: 30px auto;
+            border: 1px solid black;
+            width: 200px;
+            height: 150px;
+        }
+        #red {background-color: red;}
+        #blue {background-color: blue;}
+        #yellow {background-color: yellow;}
+    </style>
+</head>
+<body>
+     <div class="top">
+         <div>
+             <input type="button" value="선 굵게" onclick="boldFun()">
+             <!--버튼이 클릭됐을때 boldfun 불러오기-->
+             <input type="button" value="선 얇게" onclick="lightFun()">
+             <!--버튼이 클릭됐을때 lightfun 불러오기-->
+         </div>     
+         <div>
+             <input type="button" class="btn" id="red" onclick="changecolor('red')">
+             <input type="button" class="btn" id="blue" onclick="changecolor('blue')">
+             <input type="button" class="btn" id="yellow" onclick="changecolor('yellow')">
+         </div>
+     </div>
+     
+     <div id="demo"></div>
+    
+    <script>
+        var line_weight = 1;
+        /*현재 선 굵기를 선언해주는 거임*/
+        
+        function boldFun(){
+            line_weight += 1;
+            /*ling_weight= line_weight+1*/
+            
+            document.getElementById("demo").style.borderWidth/*선굵기 css를 일부 변경하겠다*/ = line_weight + "px";
+        }
+        function lightFun(){
+            if(line_weight != 1){ /*선이 0이하로 가지 않을 수 있게 1일떄는 계산 XXX*/
+                line_weight -= 1;
+            }
+            document.getElementById("demo").style.borderWidth = line_weight + "px";
+        }
+        function changecolor(mycolor){
+            document.getElementById("demo").style.backgroundColor=mycolor;
+        }
+        
+        
+    </script>
+</body>
+</html>

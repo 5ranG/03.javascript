@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *, body, html{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .clearfix::after{
+            display: block; content: ''; clear: both;
+        }
+        
+        div{
+        }
+        
+        #menu{
+            border: 1px solid black;
+            display: flex;
+        }
+        
+        .mainmenu{
+            text-align: center;
+            width: 33.3%;
+            position: relative;
+            background-color: white;
+        }
+                
+        #submenu1, #submenu2, #submenu3{
+            position: absolute;
+            top:  -50px;
+            width: 100%;
+            z-index: -100;
+            
+            transition: top 1s;
+        }
+        
+        #submenu1>li, #submenu2>li, #submenu3>li{
+            border: 1px solid black;
+            width: 100%;            
+            text-align: center;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="menu">
+        <div class="mainmenu">
+            <div class="clearfix" onmouseover = "overFunc(1)" onmouseout="outFunc(1)"> 메뉴1
+                <ul id="submenu1"> 
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mainmenu">
+            <div class="clearfix" onmouseover = "overFunc(2)" onmouseout="outFunc(2)"> 메뉴2
+                <ul id="submenu2"> 
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="mainmenu">
+            <div class="clearfix" onmouseover = "overFunc(3)" onmouseout="outFunc(3)"> 메뉴3
+                <ul id="submenu3"> 
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        
+        function overFunc(num){
+            document.getElementById("submenu"+num).style.top = '23px';
+        }
+        
+        function outFunc(num){
+            document.getElementById("submenu"+num).style.top = '-50px';
+        }
+        
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	
+	</style>
+</head>
+<body>
+	<form name="myForm" onsubmit="getValue()">
+		Name: <input type="text" name="fname">
+		<input type="submit" value="전송">
+	</form>
+	
+	
+	<script>
+		function getValue(){
+			alert(document.myForm.fname.value);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+   <style>
+      input{
+         width: 148px;
+         margin-bottom: 10px;
+      }
+      .btn{
+         text-align: center;
+         width: 30px;
+         height: 30px;
+         margin: 2px;
+      }
+      .cbtn{
+         width: 73px;
+      }
+   </style>
+</head>
+<body>
+   <div id="wrap">
+      <input type="text" id ="numplace" >
+      
+      <br>
+      <input type="button" class="btn" value="1" onclick="pushnum(1)">
+      <input type="button" class="btn" value="2" onclick="pushnum(2)">
+      <input type="button" class="btn" value="3" onclick="pushnum(3)">
+      <input type="button" class="btn" value="+" onclick="pushcal('+')">
+      <br>
+      <input type="button" class="btn" value="4" onclick="pushnum(4)">
+      <input type="button" class="btn" value="5" onclick="pushnum(5)">
+      <input type="button" class="btn" value="6" onclick="pushnum(6)">
+      <input type="button" class="btn" value="-" onclick="pushcal('-')">
+      <br>
+      <input type="button" class="btn" value="7" onclick="pushnum(7)">
+      <input type="button" class="btn" value="8" onclick="pushnum(8)">
+      <input type="button" class="btn" value="9" onclick="pushnum(9)">
+      <input type="button" class="btn" value="/" onclick="pushcal('/')">
+      <br>
+      <input type="button" class="btn" value="0" onclick="pushnum(0)">
+      <input type="button" class="btn" value="." onclick="pushcal('.')">
+      <input type="button" class="btn" value="=" onclick="resultnum()">
+      <input type="button" class="btn" value="*" onclick="pushcal('*')">
+      <br>
+      <input type="button" value="c" class="cbtn" onclick="pushclear()">
+      <input type="button" value="←" class="cbtn" onclick="pushcancel()">
+      
+      <script>
+         //현재 입력된 연산기호 저장
+         var nowcal = '';
+         var result = 0;
+         
+         //연산기호를 입력 후 text를 비워야할지
+         var boolnum = -1;
+         //이미 소수인 경우
+         var boolnumdot = 0;
+         
+         function pushnum(inputnum){
+            if(boolnum != 0){
+               document.getElementById("numplace").value = inputnum;
+               boolnum = 0;
+            }
+            //연산기호를 입력한 직후가 아니면 text에 이어 쓰도록 한다
+            else{
+               var temp = document.getElementById("numplace").value;
+               document.getElementById("numplace").value = temp + inputnum;
+            }
+         }
+         function pushcal(cal){
+            //지금까지 입력된 번호를 담아둔다
+            var num = document.getElementById("numplace").value;
+            //연산기호를 저장해둔다
+            nowcal = cal;
+            
+            switch(cal){
+               case '+':
+                  result = result + Number(num);
+                  break;
+               case '-':
+                  if(result != 0)
+                     result = result - Number(num);
+                  else
+                     result = num;
+                  break;
+               case '*':
+                  if(result != 0)
+                     result = result * Number(num);
+                  else
+                     result = num;
+                  break;
+               case '/':
+                  if(result != 0)
+                     result = result / Number(num);
+                  else
+                     result = num;
+                  break;
+               case '.':
+                  if(boolnumdot == 0){
+                     var temp = document.getElementById("numplace").value;
+                     document.getElementById("numplace").value = temp + '.';
+                     boolnumdot = -1;
+                  }
+                  break;
+            }
+            
+            if(cal != '.'){
+               document.getElementById("numplace").value = result;
+               //다음 숫자 입력부터는 text창 초기화
+               boolnum = -1;
+               boolnumdot = 0;
+            }
+
+         }
+         function resultnum(){
+            //최종 입력 연산기호로 한번 더 연산해주고 끝
+            pushcal(nowcal);
+            boolnum = -1;
+            boolnumdot = 0;
+            result = 0;
+         }
+         function pushcancel(){
+            var temp = document.getElementById("numplace").value;
+            temp = temp.substr(0, temp.length -1);        
+            document.getElementById("numplace").value = temp;
+         }
+         function pushclear(){
+            document.getElementById("numplace").value = 0;
+            boolnum = -1;
+            boolnumdot = 0;
+            result = 0;
+         }
+         
+      </script>
+   </div>
+</body>
+</html>

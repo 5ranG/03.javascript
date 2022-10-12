@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="phone">    
+    <input type="button" onclick="sendNumber()" value="전송">
+    
+    <script>
+        
+/*
+        var txt = "ABCDEFG";
+        var sln = txt.length;
+        //sln 이라고 했냐면 string의 length라서
+        
+        alert(sln);
+        */
+        
+        function sendNumber(){
+            var txt;
+            txt = document.getElementById("phone").value;
+            
+            var sln= txt.length;
+            var pos = txt.indexOf("-"); //문자를 앞에서부터 검사해서 위치를 가져옴
+            //idexOf에서 안 나오면 -1로 나옴
+            
+            //lastIndexOf 뒤에서부터 검사하는 것
+            //Indexof("-",10) <이렇게쓰면 10번째부터 순서대로 검사
+            
+            if(sln == 11 && pos == -1){
+                alert("올바른 양식입니다.");
+            }
+            else{                
+                alert("올바른 양식으로 입력해주세요.");
+            }
+        }
+
+    </script>
+</body>
+</html>

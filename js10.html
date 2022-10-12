@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <p>A funcion is triggered when the user is pressing a key in the input filed.</p>
+    
+    <input type="text" onkeydown="myFunction(event)">
+
+    <script>
+        function myFunction(e){
+            alert(e.key/*내가 뭘 눌렀는지 알려주는 친구*/);
+        }    
+        
+    </script>
+</body>
+</html>

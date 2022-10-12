@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		form{
+			border: 1px solid black;
+			padding: 20px;
+			width: 500px;
+		}
+		
+		p{
+			font-weight:600;
+		}
+		
+		label{
+			font-weight: 400;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<form name="myForm" id="myForm">
+		<p>
+			ID <input type="text" name="id" id="id_typing"><br>
+			(영문, 숫자, _로만 아이디를 작성하세요)
+		</p>		
+		<p>
+			Password <input type="password" name="password" id="password1">
+			확인: <input type="password" name="password" id="password2">
+		</p>
+		<p>
+			Name <input type="text" name="password" id="Name">
+		</p>
+		<p>
+			E-mail <input type="text" name="password" id="E-mail">
+			<label><input type="checkbox" name="my" value="공개">공개</label>
+		</p>
+		<p>
+			Homepage <input type="text" name="password" id="Homepage">
+			<label><input type="checkbox" name="my" value="공개">공개</label>
+		</p>
+		<p>
+			ICQ <input type="text" name="password" id="ICQ">
+			<label><input type="checkbox" name="my" value="공개">공개</label>
+		</p>
+		<p>
+			Mailing List
+			<label><input type="checkbox" name="my" value="메일">메일링 가입</label>
+		</p>
+		<p>
+			자기소개서 <textarea name="" cols="55" rows="3"></textarea> 
+			<label><input type="checkbox" name="my" value="공개">공개</label>
+		</p>
+		<p>
+			개인정보
+			<label><input type="checkbox" name="my" value="정보">정보 공개</label>
+		</p>
+		
+		<input type="button" value="회원가입" onclick="next2()">
+		<input type="button" value="취소"  onclick="next1()">
+	</form>
+	
+	<script>
+		
+		function next2(){
+			
+			var id_str = document.getElementById("id_typing").value;			
+			var id_rule =  /^[A-Za-z0-9]*$/;
+			
+			
+			if(document.getElementById("id_typing").value == ""){
+				alert("아이디를 입력해주세요.");					
+			}
+			else if(id_rule.test(id_str) == false){
+				alert("아이디는 영문 대소문자와 숫자로 입력해야합니다!");					
+			}
+			else if(document.getElementById("password1").value == ""){
+				alert("비밀번호를 입력해주세요.");
+			}
+			else if(document.getElementById("password2").value == ""){
+				alert("비밀번호를 확인해주세요.");
+			}
+			else if(document.getElementById("E-mail").value.indexOf("@") == "-1"){
+				alert("이메일 양식을 확인해주세요.");
+			}
+			else if(document.getElementById("Homepage").value == ""){
+				alert("홈페이지를 입력해주세요.");
+			}
+			else if(document.getElementById("ICQ").value == ""){
+				alert("ICQ를 입력해주세요.");
+			}
+			else{
+				location.href="js25_3.html";
+			}
+		}
+				
+		function next1(){			
+			location.href="js25_1.html";
+		}
+		
+	</script>
+</body>
+</html>

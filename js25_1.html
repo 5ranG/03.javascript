@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		form{
+			border: 1px solid black;
+			padding: 20px;
+			width: 500px;
+		}	
+		
+		p{
+			font-weight:600;
+		}
+		
+	</style>
+</head>
+<body>
+	<form name="myForm">
+		<p>
+			ID <input type="text" name="id" id="id_typing">
+		</p>
+		
+		<p>
+			Password <input type="text" name="password" id="password">
+		</p>
+		
+		<input type="button" value="회원가입" onclick="next1()">
+		<input type="button" value="아이디/비번찾기">
+	</form>
+	
+	<script>
+		
+		function next1(){			
+			location.href="js25_2.html";
+		}
+	</script>
+</body>
+</html>

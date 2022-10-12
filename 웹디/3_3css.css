@@ -1,0 +1,51 @@
+*{
+    padding: 0px; margin: 0px;
+    box-sizing: border-box;
+}
+
+.clearfix{
+    display: block; content: ''; clear: both;
+}
+
+/*wrap*/
+#wrap{
+    width: 1500px; height: 500px;
+    margin: 0 auto;
+    background-image: url(/03.javascript/image/2.png);
+    position: relative;
+}
+
+/*content*/
+#pop{
+    width: 100px; height: 100px;
+    background-color: aquamarine;
+    text-align: center;
+    
+}
+
+#popup{
+    display: none;
+}
+
+.pop_back{
+    position: absolute; top: 0; left: 0;
+    width: 1500px; height: 500px;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.pop_up{      
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px; height: 300px;
+    background-image: url(image/mail.naver.png);
+    background-size: cover;
+}
+
+.up1{
+    float: left;
+}
+
+.up2{
+    width: 20px; height: 20px;
+    float: right;
+}
